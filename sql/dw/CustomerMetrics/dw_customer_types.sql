@@ -99,6 +99,8 @@ FROM (
 ) sa
 ;
 
+ALTER TABLE stg.tmp_sanitize_deals ALTER SORTKEY AUTO;
+
 -- ***** Dim table to mapping HS company_id vs. organization_id
 DROP TABLE IF EXISTS dw.dim_customer_mapping;
 
@@ -554,7 +556,7 @@ WITH tbl_periods AS
         DATEADD(day, -(30 * ll.lookback)::INT, ap.activity_period_start)::DATE AS lookback_day,
         DATEADD(day, -lm.lookback_max, ap.activity_period_start)::DATE AS lookback_day_max
     FROM (
-        SELECT ADD_MONTHS('2021-09-01'::DATE, num.i)::DATE AS activity_period_start
+        SELECT ADD_MONTHS('2022-04-01'::DATE, num.i)::DATE AS activity_period_start
         FROM (
             SELECT row_number() OVER () AS i
             FROM (SELECT 0 AS "n" UNION ALL SELECT 1 UNION ALL SELECT 2),
