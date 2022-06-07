@@ -17,5 +17,10 @@ SORTKEY AUTO
 ;
 
 INSERT INTO stg.lkp_etl_parameters VALUES
-('mysql_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE())
+('mysql_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE()),
+('mysql_etl_workflow', 'min_created', NULL, NULL, '2019-01-01', TRUE, GETDATE()),
+('dw_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE()),
+('airtable_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE()),
+('jira_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE()),
+('salesforce_etl_workflow', 'last_execution', NULL, NULL, NULL, TRUE, GETDATE())
 ;
